@@ -16,8 +16,8 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(movies.getCreationDate());
-        movies.add("Человеческая многоножка", 10, 8.0, MovieGenre.COMEDY, MpaaRating.G, "Том Сикс", 80, 170);
-        movies.add("Зелёный слоник", 156, 12.0, MovieGenre.COMEDY, MpaaRating.G, "Светлана Баскова", 50, 175);
+        movies.add("Человеческая многоножка", 10, 8.0, MovieGenre.COMEDY, MpaaRating.G, 8,"Том Сикс", 80, 170);
+        movies.add("Зелёный слоник", 156, 12.0, MovieGenre.COMEDY, MpaaRating.G, 100,"Светлана Баскова", 50, 175);
 
         initializeCommands();
         input();
@@ -31,12 +31,16 @@ public class Main {
         ClearCommand clear = new ClearCommand(movies);
         AddCommand add = new AddCommand(movies, scanner);
         CommandClearTerminal clearTerminal = new CommandClearTerminal();
+        SumOfOscarCountCommand sumOfOscar = new SumOfOscarCountCommand(movies);
+        AverageOfOscarCountCommand averageOfOscar = new AverageOfOscarCountCommand(movies);
         commandMap.put(help.getName(), help);
         commandMap.put(exit.getName(), exit);
         commandMap.put(show.getName(), show);
         commandMap.put(clear.getName(), clear);
         commandMap.put(remove_by_id.getName(), remove_by_id);
         commandMap.put(add.getName(), add);
+        commandMap.put(sumOfOscar.getName(), sumOfOscar);
+        commandMap.put(averageOfOscar.getName(), averageOfOscar);
         commandMap.put(clearTerminal.getName(), clearTerminal);
 
     }

@@ -13,20 +13,21 @@ public class Movie {
     private MpaaRating mpaaRating; //Поле может быть null
     private Person director; //Поле может быть null
 
-    protected Movie(long id, String name, int x, Double y, MovieGenre genre, MpaaRating mpaaRating, String directorName, int weight, int height) {
+    protected Movie(long id, String name, int x, Double y, MovieGenre genre, MpaaRating mpaaRating, int oscarsCount, String directorName, int weight, int height) {
         this.id = id;
         setName(name);
         setCoordinates(x, y);
         this.creationDate = new Date();
         setGenre(genre);
         setMpaaRating(mpaaRating);
+        this.oscarsCount = oscarsCount;
         setDirector(directorName, weight, height);
     }
 
 
     public void setName(String name) {
         Objects.requireNonNull(name, "Строка не должна быть null");
-        if(name.isEmpty()) {
+        if (name.isEmpty()) {
             return;
         }
         this.name = name;
@@ -37,7 +38,7 @@ public class Movie {
     }
 
     public void setOscarsCount(int count) {
-        if(count <= 0) {
+        if (count <= 0) {
             return;
         }
         this.oscarsCount = count;
@@ -57,6 +58,10 @@ public class Movie {
 
     public long getID() {
         return id;
+    }
+
+    public int getOscarsCount() {
+        return oscarsCount;
     }
 
     @Override

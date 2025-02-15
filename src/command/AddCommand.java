@@ -44,6 +44,9 @@ public class AddCommand extends Command{
             default -> null;
         };
 
+        System.out.println(GECKO + "> Введите количество оскаров");
+        int oscarCount = Integer.parseInt(scanner.nextLine().trim());
+
         System.out.println(GECKO + "> Введите имя директора:");
         String directorName = scanner.nextLine().trim();
 
@@ -53,7 +56,7 @@ public class AddCommand extends Command{
         System.out.println(GECKO + "> Введите рост режиссёра:");
         int directorHeight = Integer.parseInt(scanner.nextLine().trim());
 
-        movies.add(name, x, y, movieGenre, mpaaRating, directorName, directorWeight, directorHeight);
+        movies.add(name, x, y, movieGenre, mpaaRating, oscarCount, directorName, directorWeight, directorHeight);
     }
 
     @Override

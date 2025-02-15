@@ -12,12 +12,12 @@ public class MovieDeque {
         creationDate = new Date();
     }
 
-    public void add(String name, int x, Double y, MovieGenre genre, MpaaRating mpaaRating, String directorName, int weight, int height) {
+    public void add(String name, int x, Double y, MovieGenre genre, MpaaRating mpaaRating, int oscarCount, String directorName, int weight, int height) {
         while (idSet.contains(nextFreeID)) {
             nextFreeID++;
         }
         idSet.add(nextFreeID);
-        movies.add(new Movie(nextFreeID, name, x, y, genre, mpaaRating, directorName, weight, height));
+        movies.add(new Movie(nextFreeID, name, x, y, genre, mpaaRating, oscarCount, directorName, weight, height));
         sortMovieDeque();
     }
 
