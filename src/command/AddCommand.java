@@ -18,16 +18,20 @@ public class AddCommand extends Command{
 
     @Override
     public void start(String argument) {
-        System.out.println(GECKO + "> Введите название фильма:");
+        System.out.println("Введите название фильма:");
+        System.out.print(GECKO + " > " );
         String name = scanner.nextLine().trim();
 
-        System.out.println(GECKO + "> Введите координату X:");
+        System.out.println("Введите координату X:");
+        System.out.print(GECKO + " > " );
         int x = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println(GECKO + "> Введите координату Y:");
+        System.out.println("Введите координату Y:");
+        System.out.print(GECKO + " > " );
         Double y = Double.parseDouble(scanner.nextLine().trim());
 
-        System.out.println(GECKO + "> Введите жанр фильма:");
+        System.out.println("Введите жанр фильма:");
+        System.out.print(GECKO + " > " );
         MovieGenre movieGenre = switch (scanner.nextLine().trim().toLowerCase()) {
             case "action" -> MovieGenre.ACTION;
             case "comedy" -> MovieGenre.COMEDY;
@@ -35,7 +39,8 @@ public class AddCommand extends Command{
             default -> null;
         };
 
-        System.out.println(GECKO + "> Введите возрастной рейтинг фильма");
+        System.out.println("Введите возрастной рейтинг фильма");
+        System.out.print(GECKO + " > " );
         MpaaRating mpaaRating = switch (scanner.nextLine().trim().toLowerCase()) {
             case "g" -> MpaaRating.G;
             case "pg" -> MpaaRating.PG;
@@ -44,16 +49,20 @@ public class AddCommand extends Command{
             default -> null;
         };
 
-        System.out.println(GECKO + "> Введите количество оскаров");
+        System.out.println("Введите количество оскаров");
+        System.out.print(GECKO + " > " );
         int oscarCount = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println(GECKO + "> Введите имя директора:");
+        System.out.println("Введите имя директора:");
+        System.out.print(GECKO + " > " );
         String directorName = scanner.nextLine().trim();
 
-        System.out.println(GECKO + "> Введите вес режиссёра:");
+        System.out.println("Введите вес режиссёра:");
+        System.out.print(GECKO + " > " );
         int directorWeight = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println(GECKO + "> Введите рост режиссёра:");
+        System.out.println("Введите рост режиссёра:");
+        System.out.print(GECKO + " > " );
         int directorHeight = Integer.parseInt(scanner.nextLine().trim());
 
         movies.add(name, x, y, movieGenre, mpaaRating, oscarCount, directorName, directorWeight, directorHeight);

@@ -13,10 +13,18 @@ public class Coordinates {
         this.x = x;
     }
 
+    public int getX() {
+        return x;
+    }
+
     public void setY(Double y) {
         if(y > 102) {
             return;
         }
         this.y = y;
+    }
+
+    public Double getY() {
+        return y;
     }
 }

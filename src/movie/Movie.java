@@ -3,8 +3,8 @@ package movie;
 import java.util.Date;
 import java.util.Objects;
 
-public class Movie {
-    private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+public class Movie implements Comparable<Movie>{
+    private final long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -24,6 +24,10 @@ public class Movie {
         setDirector(directorName, weight, height);
     }
 
+    @Override
+    public int compareTo(Movie other) {
+        return Integer.compare(this.oscarsCount, other.oscarsCount);
+    }
 
     public void setName(String name) {
         Objects.requireNonNull(name, "Строка не должна быть null");
@@ -33,8 +37,16 @@ public class Movie {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setCoordinates(int x, Double y) { // реализовать проверку на null
         this.coordinates = new Coordinates(x, y);
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
     public void setOscarsCount(int count) {
@@ -56,6 +68,10 @@ public class Movie {
         this.director = new Person(name, weight, height);
     }
 
+    public Person getDirector() {
+        return director;
+    }
+
     public long getID() {
         return id;
     }
@@ -63,10 +79,18 @@ public class Movie {
     public int getOscarsCount() {
         return oscarsCount;
     }
-
     @Override
     public String toString() {
-        return this.id + " " + this.name;
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", oscarsCount=" + oscarsCount +
+                ", genre=" + genre +
+                ", mpaaRating=" + mpaaRating +
+                ", director=" + director +
+                '}';
     }
-}
 
+}

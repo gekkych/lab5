@@ -1,6 +1,9 @@
 package command;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class HelpCommand extends Command {
     private final HashMap<String, Command> commandMap;
@@ -11,9 +14,14 @@ public class HelpCommand extends Command {
 
     @Override
     public void start(String argument) {
+        List<String> commandList = new ArrayList<>();
         System.out.println("Доступные команды:");
         for (Command command : commandMap.values()) {
-            System.out.println(command.description());
+            commandList.add(command.description());
+        }
+        Collections.sort(commandList);
+        for (String description : commandList) {
+            System.out.println(description);
         }
     }
 

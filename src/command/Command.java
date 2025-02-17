@@ -1,6 +1,6 @@
 package command;
 
-public abstract class Command {
+public abstract class Command implements Comparable<Command>{
     private final String name;
     private final boolean requiresExit;
     private final boolean requiresConfirmation;
@@ -13,6 +13,11 @@ public abstract class Command {
 
     public abstract void start(String argument);
     public abstract String description();
+
+    @Override
+    public int compareTo(Command command) {
+        return this.getName().compareTo(command.getName());
+    }
 
     public String getName() {
         return name;

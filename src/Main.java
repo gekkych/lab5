@@ -5,6 +5,8 @@ import movie.MovieDeque;
 import movie.MovieGenre;
 import movie.MpaaRating;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -33,16 +35,24 @@ public class Main {
         CommandClearTerminal clearTerminal = new CommandClearTerminal();
         SumOfOscarCountCommand sumOfOscar = new SumOfOscarCountCommand(movies);
         AverageOfOscarCountCommand averageOfOscar = new AverageOfOscarCountCommand(movies);
-        commandMap.put(help.getName(), help);
-        commandMap.put(exit.getName(), exit);
-        commandMap.put(show.getName(), show);
-        commandMap.put(clear.getName(), clear);
-        commandMap.put(remove_by_id.getName(), remove_by_id);
-        commandMap.put(add.getName(), add);
-        commandMap.put(sumOfOscar.getName(), sumOfOscar);
-        commandMap.put(averageOfOscar.getName(), averageOfOscar);
-        commandMap.put(clearTerminal.getName(), clearTerminal);
+        InfoCommand info = new InfoCommand(movies);
+        UpdateCommand update = new UpdateCommand(movies, scanner);
 
+        addCommand(help);
+        addCommand(exit);
+        addCommand(show);
+        addCommand(remove_by_id);
+        addCommand(clear);
+        addCommand(clearTerminal);
+        addCommand(add);
+        addCommand(sumOfOscar);
+        addCommand(averageOfOscar);
+        addCommand(info);
+        addCommand(update);
+    }
+
+    public static void addCommand(Command command) {
+        commandMap.put(command.getName(), command);
     }
 
     public static void input() {
